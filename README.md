@@ -4,13 +4,11 @@
 This project is currently **a work in progress**.
 
 ## 📁 Project Structure
-src/
-├── agents/ # Custom agents (weather, web search, etc.)
-├── controller/ # (Reserved for orchestration or coordination logic)
-├── llms/ # LLM wrappers for providers like Google, Anthropic
-│ └── creds/ # API key management & credentials
-├── models/ # Application logic and utilities
-
+- `agents/` → Custom agents (e.g., weather, search)
+- `controller/` → (Planned) Logic to coordinate agents and LLMs
+- `llms/` → Interfaces for LLM providers (like Google, Anthropic)
+  - `creds/` → API keys and credential files
+- `models/` → Core logic and helper functions
 
 ## 🧪 Setup Instructions
 
