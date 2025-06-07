@@ -1,14 +1,14 @@
 from configparser import ConfigParser
 
-import langwatch
+# import langwatch
 
-from llms.anthropic_llm import AnthropicLLM
-from llms.google_llm import GoogleLLM
+from llms.providers.anthropic import AnthropicLLM
+from llms.providers.google import GoogleLLM
 
 config = ConfigParser()
 config.read("config.ini")
 
-langwatch.setup(api_key=config["LANGWATCH"]["API_KEY"])
+# langwatch.setup(api_key=config["LANGWATCH"]["api_key"])
 
-anthropic_llm = AnthropicLLM(config["ANTHROPIC_LLM"]).get_llm()
-google_llm = GoogleLLM(config["GOOGLE_LLM"]).get_llm()
+LLM = AnthropicLLM(config["ANTHROPIC"])
+# LLM = GoogleLLM(config["GOOGLE"])

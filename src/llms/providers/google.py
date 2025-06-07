@@ -1,30 +1,33 @@
 import os
-from google.cloud import aiplatform
-from google.oauth2 import service_account
 from vertexai.generative_models._generative_models import (
     HarmBlockThreshold,
     HarmCategory,
 )
 from llama_index.llms.google_genai import GoogleGenAI
-from .base import BaseLLM
+from llms.base import BaseLLM
+
+
+def config_to_dict(config):
+    return {k: v for k, v in config.items()}
+
 
 class GoogleLLM(BaseLLM):
     """
     GoogleLLM Class
     """
+
     def __init__(self, config):
+        config = config_to_dict(config)
+        config["temperature"] = float(config["temperature"])
+        config["max_tokens"] = int(config["max_tokens"])
+        config["max_retries"] = int(config.get("max_retries", 3))
         super().__init__(config)
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = self.config["GCP_JSON_CREDS_PATH"]
 
     def get_llm(self):
         """Returns a LLamaIndex Google LLM"""
 
         return GoogleGenAI(
-            vertexai_config={"project": self.config["GCP_PROJECT_ID"], "location": self.config["GCP_REGION"]},
-            model=self.config["MODEL"],
-            temperature=float(self.config["TEMPERATURE"]),
-            max_retries=int(self.config["MAX_RETRIES"]),
-            max_tokens=int(self.config["MAX_TOKENS"]),
+            **self.config,
             safety_settings={
                 HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
                 HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,

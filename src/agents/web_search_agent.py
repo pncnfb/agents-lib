@@ -37,15 +37,13 @@ class WebSearchAgent:
 
         scraped_info = "\n\n".join(scraped_info_parts)
 
-        # Compose prompt
-        prompt = self.prompt_template.format(
+        return self.llm.evaluate(
+            prompt=self.prompt_template,
+            output_cls=WebResponseAugmented,
             query=query_text,
             scraped_info=scraped_info
         )
-
-        response_text = self.llm.complete(prompt).text
-
-        return WebResponseAugmented(response=response_text, references=references)
+        #return WebResponseAugmented(response=response_text, references=references)
 
     def scrape_page_text(self, url: str, max_chars: int = 1000) -> str:
         try:

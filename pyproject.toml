@@ -23,7 +23,9 @@ dependencies = [
     "llama-index-tools-duckduckgo",
     "requests",
     "beautifulsoup4",
-    "langwatch"
+    "langwatch",
+    "mcp-python",
+    "anthropic"
 ]
 
 [project.optional-dependencies]
@@ -43,5 +45,6 @@ packages = [
     "src.models",
     "src.agents",
     "src.controller",
-    "src.llms"
+    "src.llms",
+    "src.mcp"
 ]

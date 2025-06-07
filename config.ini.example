@@ -1,22 +1,20 @@
-[MISTRAL_AI]
-API_KEY=<your-mistral-api-key>
+[MISTRAL]
+api_key=<your-mistral-api-key>
 
-[GOOGLE_LLM]
-GCP_JSON_CREDS_PATH=./src/llms/creds/<your-creds-file>.json
-GCP_PROJECT_ID=<project-id>
-GCP_REGION=<region>
-MODEL=gemini-2.0-flash
-TEMPERATURE = 1
-MAX_RETRIES = 10
-MAX_TOKENS = 8192
-TOP_K = 2
-TOP_P = 0.5
+[GOOGLE]
+api_key=<google-api-key>
+project=<project-id>
+location=<region>
+model=gemini-2.0-flash
+temperature = 1
+max_tokens = 8192
 
-[ANTHROPIC_LLM]
-ANTHROPIC_API_KEY=<your-anthropic-api-key>
-MODEL=claude-3-7-sonnet-latest
-TEMPERATURE=0.7
-MAX_TOKENS=1024
+
+[ANTHROPIC]
+api_key=<your-anthropic-api-key>
+model=claude-3-7-sonnet-latest
+temperature=0.7
+max_tokens=1024
 
 [LANGWATCH]
-API_KEY = <your-langwatch-api-key>
+api_key = <your-langwatch-api-key>

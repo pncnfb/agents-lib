@@ -236,3 +236,4 @@ pyrightconfig.json
 *.json
 config.ini
 notes.md
+test_*.py
