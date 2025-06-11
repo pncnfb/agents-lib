@@ -1,14 +1,11 @@
-from configparser import ConfigParser
+import json
+import toml
 
-# import langwatch
+#import langwatch
+#langwatch.setup(api_key=config["langwatch"]["api_key"])
 
-from llms.providers.anthropic import AnthropicLLM
-from llms.providers.google import GoogleLLM
+CONFIG = toml.load("config.toml")
 
-config = ConfigParser()
-config.read("config.ini")
+with open(file="mcp_servers_config.json", mode="r", encoding="utf-8") as f:
+    MCP_SERVERS = json.load(f)["mcpServers"]
 
-# langwatch.setup(api_key=config["LANGWATCH"]["api_key"])
-
-LLM = AnthropicLLM(config["ANTHROPIC"])
-# LLM = GoogleLLM(config["GOOGLE"])

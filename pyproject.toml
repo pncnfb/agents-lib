@@ -1,31 +1,26 @@
 [project]
 name = "agent_lib"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
     { name = "Fabio Pancino", email = "pancinofabio@gmail.com" },
 ]
-description = "inference_application"
+description = "agent_lib"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
-    "fastapi[standard]",
-    "fastapi==0.112.1",
-    "uvicorn==0.30.6",
-    "pydantic==2.9.*",
-    "httpx",
-    "google-cloud-secret-manager==2.20.2",
+    "toml==0.10.*",
+    "requests==2.32.*",
+    "beautifulsoup4==4.13.*",
     "mistralai==1.5.*",
-    "google-cloud-aiplatform==1.75.*",
-    "llama-index",
+    "anthropic",
     "google-generativeai",
-    "llama-index-llms-google-genai",
-    "llama-index-llms-anthropic",
-    "llama-index-tools-duckduckgo",
-    "requests",
-    "beautifulsoup4",
-    "langwatch",
-    "mcp-python",
-    "anthropic"
+    "llama-index==0.12.*",
+    "llama-index-llms-google-genai==0.2.*",
+    "llama-index-llms-anthropic==0.7.*",
+    "llama-index-tools-duckduckgo==0.3.*",
+    "langwatch==0.2.*",
+    "mcp-python==0.1.*",
+    "llama-index-tools-mcp==0.2.*"
 ]
 
 [project.optional-dependencies]
@@ -45,6 +40,6 @@ packages = [
     "src.models",
     "src.agents",
     "src.controller",
-    "src.llms",
+    "src.llm",
     "src.mcp"
 ]

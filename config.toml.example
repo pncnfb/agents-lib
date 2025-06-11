@@ -1,0 +1,25 @@
+[mistral]
+api_key="<your-mistral-api-key>"
+
+[google]
+api_key="<google-api-key>"
+project="<project-id>"
+location="<region>"
+model="gemini-2.0-flash"
+temperature = 1
+max_tokens = 8192
+
+[anthropic]
+api_key="<your-anthropic-api-key>"
+model="claude-3-7-sonnet-latest"
+temperature=0.7
+max_tokens=1024
+
+[langwatch]
+api_key = "<your-langwatch-api-key>"
+
+[db]
+host = "localhost:5432"
+usr = "username"
+psw = "password"
+db_name = "postgres"

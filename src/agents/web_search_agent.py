@@ -1,13 +1,17 @@
 from typing import List
 import requests
 from bs4 import BeautifulSoup
+
 from llama_index.tools.duckduckgo import DuckDuckGoSearchToolSpec
+
 from models.web_search import SingleSourceRes, WebResponseAugmented
+
 
 class WebSearchAgent:
     """
     WebSearchAgent Class
     """
+
     def __init__(self, llm: any):
         self.llm = llm
         self.prompt_template = (
@@ -41,9 +45,8 @@ class WebSearchAgent:
             prompt=self.prompt_template,
             output_cls=WebResponseAugmented,
             query=query_text,
-            scraped_info=scraped_info
+            scraped_info=scraped_info,
         )
-        #return WebResponseAugmented(response=response_text, references=references)
 
     def scrape_page_text(self, url: str, max_chars: int = 1000) -> str:
         try:
@@ -54,6 +57,10 @@ class WebSearchAgent:
             texts = soup.stripped_strings
             page_text = " ".join(texts)
 
-            return page_text[:max_chars] + "..." if len(page_text) > max_chars else page_text
+            return (
+                page_text[:max_chars] + "..."
+                if len(page_text) > max_chars
+                else page_text
+            )
         except Exception as e:
             return f"[Error loading {url}: {e}]"

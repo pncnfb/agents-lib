@@ -2,15 +2,11 @@ from typing import List
 from pydantic import BaseModel
 
 class SingleSourceRes(BaseModel):
-    """
-    SingleSourceRes
-    """
+    """SingleSourceRes"""
     text: str
     link: str
 
 class WebResponseAugmented(BaseModel):
-    """
-    WebResponseAugmented
-    """
+    """WebResponseAugmented"""
     response: str
     references: List[SingleSourceRes]

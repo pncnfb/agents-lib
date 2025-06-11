@@ -1,0 +1,9 @@
+{
+    "mcpServers": {
+      "postgres": {
+        "command": "uvx",
+        "args": ["postgres-mcp"],
+        "env": {"DATABASE_URI": "postgres://username:psw@localhost:5432/dbname"}
+      }
+    }
+  }
